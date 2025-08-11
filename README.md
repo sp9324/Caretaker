@@ -1,6 +1,6 @@
 <!-- launch -->
 1. source venv/bin/activate
-2. python src/posture/yolo_posture.py
+2. ./venv/bin/python file_name_daal_do_dhar.py
 
 <!-- push branch every time a new one is created: git push -u origin "branch-name" -->
 
