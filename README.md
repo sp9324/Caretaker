@@ -1,6 +1,6 @@
 <!-- launch -->
-source venv/bin/activate
-python src/posture/yolo_posture.py
+1. source venv/bin/activate
+2. python src/posture/yolo_posture.py
 
 <!-- push branch every time a new one is created: git push -u origin "branch-name" -->
 
