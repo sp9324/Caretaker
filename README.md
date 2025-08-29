@@ -67,6 +67,8 @@ Includes pause/resume and snooze for 10 minutes like in your posture code.
 
 uses cos(theta)*shortest distance, where theta is vertical offset angle (camera to forehead). -> geometrical correction 
 
+yaw, nose left or right about an axis running up and down; pitch, nose up or down about an axis running from wing to wing
+
 **FUTURE TASKS**
 1. tighter accuracy, build a small JSON registry that maps camera model + resolution → f_px.
 At app start, read the camera name (e.g., “FaceTime HD Camera (Built-in)”) and resolution, look up f_px. If unknown, fall back to Option A. You (as the developer) do this once per popular laptop model; users don’t calibrate.
