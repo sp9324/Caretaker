@@ -64,3 +64,7 @@ Focal length (f) = assume ~900 pixels (reasonable for typical 720p/1080p laptop 
 Bad condition = distance < 60 cm.
 Notification trigger = if 4 out of last 5 checks are bad AND bad streak lasts ≥ 30 seconds.
 Includes pause/resume and snooze for 10 minutes like in your posture code.
+
+**FUTURE TASKS**
+1. tighter accuracy, build a small JSON registry that maps camera model + resolution → f_px.
+At app start, read the camera name (e.g., “FaceTime HD Camera (Built-in)”) and resolution, look up f_px. If unknown, fall back to Option A. You (as the developer) do this once per popular laptop model; users don’t calibrate.
