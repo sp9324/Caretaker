@@ -56,17 +56,29 @@ https://research.google/blog/mediapipe-iris-real-time-iris-tracking-depth-estima
 
 Since distance to the screen is subtle and we need eye landmarks (iris centers), MediaPipe is better — faster and more battery-friendly for this feature.
 
-no calibration for easy use of app.
+no user side calibration for easy use of app.
 MEDIAPIPE IRIS
-Uses MediaPipe FaceMesh for iris landmarks (468 and 473).
-Iris diameter (D) = 11.7 mm (standard from MediaPipe research).
-Focal length (f) = assume ~900 pixels (reasonable for typical 720p/1080p laptop webcams).
-Bad condition = distance < 60 cm.
-Notification trigger = if 4 out of last 5 checks are bad AND bad streak lasts ≥ 30 seconds.
-Includes pause/resume and snooze for 10 minutes like in your posture code.
+Camera Model:
 
-uses cos(theta)*shortest distance, where theta is vertical offset angle (camera to forehead). -> geometrical correction 
+Assumes average interpupillary distance (6.3 cm).
 
+Uses fixed focal length (1000 px) — can be calibrated for accuracy.
+
+Alert logic:
+
+Runs checks every 3 seconds (CHECK_INTERVAL_SECONDS).
+
+Maintains a sliding window of recent checks (deque with BAD_LOG_MAXLEN).
+
+Shows warning if:
+
+Distance < 35 cm (DISTANCE_THRESHOLD_CM).
+
+Condition persists for ≥ 30 seconds.
+
+At least 4 recent measurements are “too close.”
+
+UI Threading: Uses QTimer to schedule distance checks without blocking PyQt’s event loop.
 yaw, nose left or right about an axis running up and down; pitch, nose up or down about an axis running from wing to wing
 
 **FUTURE TASKS**
